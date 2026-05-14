@@ -1,0 +1,272 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+export default function GeneralMedicine() {
+  const router = useRouter();
+  const [selectedDisease, setSelectedDisease] = useState(null);
+
+  const diseases = [
+    {
+      name: "Fever",
+      description:
+        "Comprehensive evaluation and treatment of fever with advanced diagnostics."
+    },
+    {
+      name: "Diabetes",
+      description:
+        "Complete diabetes care including medication optimization and monitoring."
+    },
+    {
+      name: "Hypertension",
+      description:
+        "Lifestyle modification and medical management to prevent complications."
+    },
+    {
+      name: "Dengue Fever",
+      description:
+        "Specialized dengue care with platelet monitoring and IV fluids."
+    },
+    {
+      name: "Tuberculosis (TB)",
+      description:
+        "Complete TB management including DOTS therapy and monitoring."
+    },
+    {
+      name: "Pneumonia",
+      description:
+        "Comprehensive pneumonia care with antibiotics and oxygen therapy."
+    }
+  ];
+
+  const handleDiseaseClick = (disease) => {
+    setSelectedDisease(
+      selectedDisease?.name === disease.name ? null : disease
+    );
+  };
+
+  return (
+    <>
+      {/* Hero Section */}
+      <div className="relative w-full h-[75vh] min-h-[550px] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
+        style={{ backgroundImage: "url('https://i.pinimg.com/1200x/79/ca/cd/79cacd36b206e0e26204d7a48e4f8dc1.jpg')" }}>
+        {/* Hero Overlay */}
+        <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
+        
+        {/* Hero Content */}
+        <div className="relative z-10 text-center max-w-[1000px] px-8 animate-[slideInUp_1s_ease-out]">
+          <div className="inline-block bg-white/15 backdrop-blur-[10px] text-white py-2.5 px-6 rounded-full text-sm font-medium mb-6 border border-white/30 animate-[tagFloat_3s_ease-in-out_infinite]">
+            🏥 General Medicine
+          </div>
+          
+          <h1 className="font-['Playfair_Display',serif] text-5xl md:text-6xl lg:text-[3.5rem] font-bold text-white leading-tight mb-5 [text-shadow:2px_2px_8px_rgba(0,0,0,0.3)] animate-[fadeIn_1s_ease-out_0.2s_backwards]">
+            Welcome To Department Of General Medicine
+          </h1>
+          
+          <p className="text-lg md:text-xl text-white/95 mb-8 max-w-[800px] mx-auto leading-relaxed [text-shadow:1px_1px_4px_rgba(0,0,0,0.3)] animate-[fadeIn_1s_ease-out_0.4s_backwards]">
+            Comprehensive, patient-centered healthcare
+          </p>
+          
+          <button
+            className="bg-white text-teal-500 py-4 px-12 text-base font-semibold border-none rounded-full cursor-pointer transition-all duration-[0.4s] shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:translate-y-[-4px] hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:bg-teal-50 animate-[fadeIn_1s_ease-out_0.6s_backwards]"
+            onClick={() => router.push("/contact")}
+          >
+            Contact Us
+          </button>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <div className="max-w-[1400px] mx-auto my-[100px] px-12 sm:px-6 lg:px-12">
+        <div className="text-center mb-15 animate-[fadeInUp_0.8s_ease-out]">
+          <h1 className="font-['Playfair_Display',serif] text-4xl md:text-5xl font-bold text-slate-800 mb-4 relative">
+            About General Medicine Department
+          </h1>
+          <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-teal-600 mx-auto rounded relative after:content-[''] after:absolute after:top-[-4px] after:left-1/2 after:-translate-x-1/2 after:w-3 after:h-3 after:bg-teal-500 after:rounded-full"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-15">
+          <div className="relative">
+            <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-6 text-justify animate-[fadeIn_0.8s_ease-out_0.1s_backwards]">
+              The General Medicine Department at Jigyasa Hospital is committed to providing comprehensive, patient-centered healthcare for a wide range of medical conditions affecting adults. We understand that good health is the foundation of a fulfilling life, and our mission is to deliver expert medical care with compassion, precision, and the latest medical advancements.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-slate-600 text-justify animate-[fadeIn_0.8s_ease-out_0.2s_backwards]">
+              We specialize in the diagnosis and treatment of conditions such as diabetes, hypertension, respiratory disorders, infectious diseases, gastrointestinal problems, thyroid disorders, fever of unknown origin, and lifestyle-related diseases. Each patient receives an individualized treatment plan tailored to their specific health needs, medical history, and personal circumstances.
+            </p>
+          </div>
+
+          <div className="relative animate-[slideInRight_1s_ease-out]">
+            <img
+              src="https://i.pinimg.com/1200x/a7/36/69/a736697328085f29269258e61849d4eb.jpg"
+              alt="General Medicine"
+              className="w-full h-auto rounded-3xl shadow-[0_20px_50px_rgba(20,184,166,0.15)] transition-all duration-400 hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(20,184,166,0.2)]"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery Section */}
+      <div className="max-w-[1400px] mx-auto my-[100px] px-12 sm:px-6 lg:px-12">
+        <div className="text-center mb-15 animate-[fadeInUp_0.8s_ease-out]">
+          <h1 className="font-['Playfair_Display',serif] text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            Gallery
+          </h1>
+          <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-teal-600 mx-auto rounded relative after:content-[''] after:absolute after:top-[-4px] after:left-1/2 after:-translate-x-1/2 after:w-3 after:h-3 after:bg-teal-500 after:rounded-full"></div>
+        </div>
+
+        <div className="py-12">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={20}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2500 }}
+            freeMode={true}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            modules={[Pagination, Autoplay, FreeMode]}
+            className="gallery-swiper"
+          >
+            {[1, 2, 3, 4].map((num) => (
+              <SwiperSlide key={num}>
+                <img
+                  src={`/gallery${num}.png`}
+                  alt={`Gallery ${num}`}
+                  className="w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_30px_rgba(20,184,166,0.12)] transition-all duration-[0.4s] cursor-pointer hover:scale-105 hover:shadow-[0_20px_50px_rgba(20,184,166,0.15)]"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      {/* Conditions We Treat */}
+      <div className="max-w-[1400px] mx-auto my-[100px] mb-[60px] px-12 sm:px-6 lg:px-12">
+        <div className="text-center mb-15 animate-[fadeInUp_0.8s_ease-out]">
+          <h1 className="font-['Playfair_Display',serif] text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            Conditions We Treat
+          </h1>
+          <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-teal-600 mx-auto rounded relative after:content-[''] after:absolute after:top-[-4px] after:left-1/2 after:-translate-x-1/2 after:w-3 after:h-3 after:bg-teal-500 after:rounded-full"></div>
+        </div>
+
+        <div className="mt-15 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {diseases.map((disease, index) => (
+            <div key={index} className="animate-[fadeInUp_0.6s_ease-out_backwards]">
+              <div
+                className={`bg-white py-4 px-6 rounded-lg shadow-[0_4px_12px_rgba(20,184,166,0.08)] cursor-pointer transition-all duration-300 flex items-center justify-between border-l-[3px] hover:shadow-[0_8px_30px_rgba(20,184,166,0.12)] hover:border-l-teal-500 hover:bg-teal-50/50 ${
+                  selectedDisease?.name === disease.name
+                    ? "bg-teal-50/50 border-l-teal-500"
+                    : "border-l-transparent"
+                }`}
+                onClick={() => handleDiseaseClick(disease)}
+              >
+                <strong className="flex-1 text-slate-800 font-medium text-[0.95rem]">
+                  {disease.name}
+                </strong>
+                <span className={`w-5 h-5 flex items-center justify-center text-teal-500 text-xl font-light transition-transform duration-300 ${
+                  selectedDisease?.name === disease.name ? "rotate-45" : ""
+                }`}>
+                  {selectedDisease?.name === disease.name ? "−" : "+"}
+                </span>
+              </div>
+
+              {selectedDisease?.name === disease.name && (
+                <div className="bg-white py-4 px-6 mt-2 rounded-lg border-l-[3px] border-l-teal-500 animate-[slideDown_0.3s_ease-out]">
+                  <p className="text-slate-600 leading-relaxed text-sm m-0">
+                    {disease.description}
+                  </p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Footer />
+
+      <style jsx>{`
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes tagFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            max-height: 0;
+          }
+          to {
+            opacity: 1;
+            max-height: 200px;
+          }
+        }
+
+        /* Swiper Pagination Customization */
+        :global(.gallery-swiper .swiper-pagination-bullet) {
+          background: #14b8a6;
+          opacity: 0.5;
+          width: 10px;
+          height: 10px;
+        }
+
+        :global(.gallery-swiper .swiper-pagination-bullet-active) {
+          opacity: 1;
+          width: 30px;
+          border-radius: 5px;
+        }
+      `}</style>
+    </>
+  );
+}
